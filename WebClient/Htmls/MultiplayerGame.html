@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplayer game</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../Content/bootstrap.min.css"/>
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Content/bootstrap-theme.min.css"/>
+</head>
+<body>
+<canvas id="mazeCanvas" width="300" height="300" style="border: 2px black solid"></canvas> <script>
+                                                                                               function drawMaze(maze) {
+                                                                                                   var myCanvas =
+                                                                                                       document
+                                                                                                           .getElementById(
+                                                                                                               "mazeCanvas");
+                                                                                                   var context =
+                                                                                                       mazeCanvas
+                                                                                                           .getContext(
+                                                                                                               "2d");
+                                                                                                   var rows = maze
+                                                                                                       .length;
+                                                                                                   var cols = maze[0]
+                                                                                                       .length;
+                                                                                                   var cellWidth =
+                                                                                                       mazeCanvas
+                                                                                                           .width /
+                                                                                                           cols;
+                                                                                                   var cellHeight =
+                                                                                                       mazeCanvas
+                                                                                                           .height /
+                                                                                                           rows;
+                                                                                                   for (var i = 0;
+                                                                                                       i < rows;
+                                                                                                       i++) {
+                                                                                                       for (var j = 0;
+                                                                                                           j < cols;
+                                                                                                           j++) {
+                                                                                                           if (maze[i][j
+                                                                                                               ] ==
+                                                                                                               1) {
+                                                                                                               context
+                                                                                                                   .fillRect(
+                                                                                                                       cellWidth *
+                                                                                                                       j,
+                                                                                                                       cellHeight *
+                                                                                                                       i,
+                                                                                                                       cellWidth,
+                                                                                                                       cellHeight);
+                                                                                                           }
+                                                                                                       }
+                                                                                                   }
+                                                                                               }
+
+                                                                                               maze =
+                                                                                               [
+                                                                                                   [
+                                                                                                       0, 1, 0, 1, 0, 0,
+                                                                                                       0,
+                                                                                                       1, 0, 0, 0
+                                                                                                   ],
+                                                                                                   [
+                                                                                                       0, 1, 0, 1, 1, 1,
+                                                                                                       0,
+                                                                                                       1, 0, 1, 0
+                                                                                                   ]
+                                                                                                   [
+                                                                                                       0, 0, 0, 0, 0, 1,
+                                                                                                       0,
+                                                                                                       0, 0, 0, 0
+                                                                                                   ]
+                                                                                               ];
+                                                                                               drawMaze(maze);
+                                                                                           </script>
+</body>
+</html>
